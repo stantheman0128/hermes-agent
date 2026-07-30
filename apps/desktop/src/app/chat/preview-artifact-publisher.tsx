@@ -33,7 +33,7 @@ const publicationFromToolPart = (part: ToolPart): PreviewArtifactPublication | n
     return cached
   }
 
-  if (!part.toolCallId || !isSuccessfulToolPart(part)) {
+  if (!part.toolCallId || part.isError || !isSuccessfulToolPart(part)) {
     publicationByToolPart.set(part, null)
 
     return null
